@@ -10,7 +10,8 @@
 #' tfL_style()
 
 tfl_style <- function() {
-  font <- "Segeo UI" # to be replaced
+
+  font <- "Helvetica" # to be replaced
 
   ggplot2::theme(
 
