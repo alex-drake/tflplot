@@ -1,0 +1,23 @@
+Package: tflplot
+Type: Package
+Title: Transport for London (TfL) Themed Colour Palettes
+Version: 0.1.0
+Author: c(person("Alex", "Drake", role = c("aut"))
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Provide Transport for London (TfL) themed colour palettes for plotting
+    in ggplot2. This package is completely unofficial and not endorsed by Transport for London
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.1)
+Imports:
+    ggplot2,
+    png,
+    grid,
+    ggpubr
+Suggests:
+    dplyr,
+    rmarkdown,
+    knitr,
+    gridExtra
+    
