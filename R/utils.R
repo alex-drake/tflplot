@@ -16,7 +16,7 @@
 #' view_palette(tfl_palettes$primary, "primary")
 #' view_palette(tfl_palettes$primary, "primary first 4", num = 4)
 #' view_palette(tfl_palettes$primary, "primary interpolated to 25", num = 25)
-#'
+#' @keywords view_palette
 #' @export
 #' @importFrom graphics image
 #' @importFrom grDevices colorRampPalette

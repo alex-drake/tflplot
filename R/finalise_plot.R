@@ -1,4 +1,14 @@
-
+#' Export the plot
+#'
+#' Running this will export the plot using ggsave
+#'
+#' @keywords save_plot
+#' @param plot_grid arrange plot using a grid
+#' @param width width of plot in pixels
+#' @param height height of plot in pixels
+#' @param save_filepath the filepath at which the plot will be saved
+#'
+#' @export
 
 save_plot <- function (plot_grid, width, height, save_filepath) {
   grid::grid.draw(plot_grid)
@@ -6,7 +16,15 @@ save_plot <- function (plot_grid, width, height, save_filepath) {
   ggplot2::ggsave(filename = save_filepath,
                   plot=plot_grid, width=(width/72), height=(height/72),  bg=tfl_cols("white"))
 }
-
+#' Left align
+#'
+#' Running this will adjust the appearance of the chart
+#'
+#' @keywords left_align
+#' @param plot_name The variable name of the plot you have created that you want to format and save
+#' @param pieces elements to be left aligned
+#'
+#' @export
 #Left align text
 left_align <- function(plot_name, pieces){
   grob <- ggplot2::ggplotGrob(plot_name)
@@ -15,6 +33,15 @@ left_align <- function(plot_name, pieces){
   return(grob)
 }
 
+#' Make the footer
+#'
+#' Running this will create the footer, including the required image/logo
+#'
+#' @keywords create_footer
+#' @param source_name the text to be used for the source reference - may want to drop this in future
+#' @param logo_image_path File path for the logo image you want to use in the right hand side of your chart,
+#'
+#' @export create_footer
 create_footer <- function (source_name, logo_image_path) {
   #Make the footer
   footer <- grid::grobTree(grid::linesGrob(x = grid::unit(c(0, 1), "npc"), y = grid::unit(1.1, "npc")),
@@ -39,14 +66,6 @@ create_footer <- function (source_name, logo_image_path) {
 #' @return (Invisibly) an updated ggplot object.
 
 #' @keywords finalise_plot
-#' @examples
-#' finalise_plot(plot_name = myplot,
-#' source = "The source for my data",
-#' save_filepath = "filename_that_my_plot_should_be_saved_to-nc.png",
-#' width_pixels = 640,
-#' height_pixels = 450,
-#' logo_image_path = "logo_image_filepath.png"
-#' )
 #'
 #' @export
 finalise_plot <- function(plot_name,
@@ -54,7 +73,7 @@ finalise_plot <- function(plot_name,
                           save_filepath=file.path(Sys.getenv("TMPDIR"), "tmp-nc.png"),
                           width_pixels=640,
                           height_pixels=450,
-                          logo_image_path = file.path(system.file("data", package = 'tflplot'),"placeholder.png")) {
+                          logo_image_path = file.path(system.file("www", package = 'tflplot'),"placeholder.png")) {
 
   footer <- create_footer(source_name, logo_image_path)
 

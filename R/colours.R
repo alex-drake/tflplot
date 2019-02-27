@@ -8,10 +8,11 @@
 #' underground
 #' modes
 
-#' Function to extract TfL colors as hex codes
+#' @description Function to extract TfL colors as hex codes
 #'
 #' @param ... Character names of tfl_colors
-#'
+#' @keywords tfl_cols
+#' @export tfl_cols
 tfl_cols <- function(...) {
   cols <- c(...)
 
@@ -60,6 +61,11 @@ tfl_colours <- c(`primary blue`="#1a5a92",
                 `dial-a-ride`="#CC33CC",
                 `emirates air line`="#D9002A")
 
+#' Define the tfl colour palettes as named entities
+#'
+#' @keywords tfl_palettes
+#'
+#' @export tfl_palettes
 ## Palette collections
 tfl_palettes <- list(
   `primary` = tfl_cols("primary blue","dark grey","tfl blue","turqoise","white"),

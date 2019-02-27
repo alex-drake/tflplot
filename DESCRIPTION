@@ -20,4 +20,4 @@ Suggests:
     rmarkdown,
     knitr,
     gridExtra
-    
+RoxygenNote: 6.1.1

@@ -4,6 +4,8 @@
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
+#' @keywords tfl_pal
+#' @export
 tfl_pal <- function(palette = "underground", reverse = FALSE, ...) {
   pal <- tfl_palettes[[palette]]
 
@@ -19,6 +21,8 @@ tfl_pal <- function(palette = "underground", reverse = FALSE, ...) {
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
+#' @keywords scale_color_tfl
+#' @export
 scale_color_tfl <- function(palette = "underground", discrete = TRUE, reverse = FALSE, ...) {
   pal <- tfl_pal(palette = palette, reverse = reverse)
 
@@ -37,6 +41,8 @@ scale_color_tfl <- function(palette = "underground", discrete = TRUE, reverse = 
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
+#' @keywords scale_fill_tfl
+#' @export
 scale_fill_tfl <- function(palette = "underground", discrete = TRUE, reverse = FALSE, ...) {
   pal <- tfl_pal(palette = palette, reverse = reverse)
 

@@ -3,11 +3,6 @@
 #' This function allows you to add the TfL theme to your ggplotgraphics.
 #' @keywords tfl_style
 #' @export
-#' @examples
-#' line <- ggplot(line_df, aes(x = year, y = lifeExp)) +
-#' geom_line(colour = tfl_cols("metropolitan"), size = 1) +
-#' geom_hline(yintercept = 0, size = 1, colour=tfl_cols("tfl blue")) +
-#' tfL_style()
 
 tfl_style <- function() {
 
