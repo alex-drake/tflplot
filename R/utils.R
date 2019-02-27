@@ -24,8 +24,8 @@
 view_palette <- function(pal, ttl = deparse(substitute(pal)), num = length(pal)) {
   if(num <= 0)
     stop("'num' should be > 0")
-  pal_func <- colorRampPalette(pal)
-  image(seq_len(num), 1, as.matrix(seq_len(num)), col = pal_func(num),
-        main = paste0(ttl, " (", length(pal), " colours in palette, ", num, " displayed)"),
-        xlab = "", ylab = "", xaxt = "n", yaxt = "n",  bty = "n")
+  pal_func <- grDevices::colorRampPalette(pal)
+  graphics::image(seq_len(num), 1, as.matrix(seq_len(num)), col = pal_func(num),
+                  main = paste0(ttl, " (", length(pal), " colours in palette, ", num, " displayed)"),
+                  xlab = "", ylab = "", xaxt = "n", yaxt = "n",  bty = "n")
 }

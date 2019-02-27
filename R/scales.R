@@ -9,7 +9,7 @@ tfl_pal <- function(palette = "underground", reverse = FALSE, ...) {
 
   if (reverse) pal <- rev(pal)
 
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
 #' Color scale constructor for tfl colours
 #'
@@ -23,9 +23,9 @@ scale_color_tfl <- function(palette = "underground", discrete = TRUE, reverse = 
   pal <- tfl_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("colour", paste0("tfl_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("colour", paste0("tfl_", palette), palette = pal, ...)
   } else {
-    scale_color_gradientn(colours = pal(256), ...)
+    ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
 }
 
@@ -38,11 +38,11 @@ scale_color_tfl <- function(palette = "underground", discrete = TRUE, reverse = 
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 scale_fill_tfl <- function(palette = "underground", discrete = TRUE, reverse = FALSE, ...) {
-  pal <- drsimonj_pal(palette = palette, reverse = reverse)
+  pal <- tfl_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("fill", paste0("tfl_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("fill", paste0("tfl_", palette), palette = pal, ...)
   } else {
-    scale_fill_gradientn(colours = pal(256), ...)
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
