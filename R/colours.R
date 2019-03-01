@@ -59,7 +59,9 @@ tfl_colours <- c(`primary blue`="#1a5a92",
                 `london streets`="#999999",
                 `river`="#0099CC",
                 `dial-a-ride`="#CC33CC",
-                `emirates air line`="#D9002A")
+                `emirates air line`="#D9002A",
+                `overground`="#e87722",
+                `elizabeth line`="#6950a1")
 
 #' Define the tfl colour palettes as named entities
 #'
@@ -71,5 +73,5 @@ tfl_palettes <- list(
   `primary` = tfl_cols("primary blue","dark grey","tfl blue","turqoise","white"),
   `accent` = tfl_cols("light grey 1","light grey 2","mid grey","light blue","mid blue","green","warning yellow","error red"),
   `underground` = tfl_cols("bakerloo","central","circle","district","hammersmith & city","jubilee","metropolitan","northern","picadilly","victoria","waterloo & city"),
-  `modes` = tfl_cols("lu blue","lu red","buses","dlr","tramlink","bch 1","bch 2","public carriage","victoria coach stn","london streets","river","dial-a-ride","emirates air line")
+  `modes` = tfl_cols("lu blue","lu red","buses","dlr","tramlink","bch 1","bch 2","public carriage","victoria coach stn","london streets","river","dial-a-ride","emirates air line","overground","elizabeth line")
 )
