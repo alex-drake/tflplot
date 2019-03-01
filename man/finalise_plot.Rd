@@ -4,7 +4,7 @@
 \alias{finalise_plot}
 \title{Arrange alignment and save TfL ggplot chart}
 \usage{
-finalise_plot(plot_name, source_name,
+finalise_plot(plot_name, caption = "",
   save_filepath = file.path(Sys.getenv("TMPDIR"), "tmp-nc.png"),
   width_pixels = 640, height_pixels = 450,
   logo_image_path = file.path(system.file("www", package = "tflplot"),
@@ -13,7 +13,7 @@ finalise_plot(plot_name, source_name,
 \arguments{
 \item{plot_name}{The variable name of the plot you have created that you want to format and save}
 
-\item{source_name}{The text you want to come after the text 'Source:' in the bottom left hand side of your side}
+\item{caption}{The text you want to come on the bottom left of your chat - usually reserved for caption text, but could reference a source. Defaults to ""}
 
 \item{save_filepath}{Exact filepath that you want the plot to be saved to}
 

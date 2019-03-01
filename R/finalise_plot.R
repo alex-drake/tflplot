@@ -38,7 +38,7 @@ left_align <- function(plot_name, pieces){
 #' Running this will create the footer, including the required image/logo
 #'
 #' @keywords create_footer
-#' @param source_name the text to be used for the source reference - may want to drop this in future
+#' @param caption the text to be used for the caption - can be left blank
 #' @param logo_image_path File path for the logo image you want to use in the right hand side of your chart,
 #'
 #' @export create_footer

@@ -4,10 +4,10 @@
 \alias{create_footer}
 \title{Make the footer}
 \usage{
-create_footer(source_name, logo_image_path)
+create_footer(caption, logo_image_path)
 }
 \arguments{
-\item{source_name}{the text to be used for the source reference - may want to drop this in future}
+\item{caption}{the text to be used for the caption - can be left blank}
 
 \item{logo_image_path}{File path for the logo image you want to use in the right hand side of your chart,}
 }
