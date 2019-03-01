@@ -15,4 +15,4 @@ devtools::install_github('alex-drake/tflplot')
 * Select first n colours in palette rather than interpolate
 * Option to merge palettes (modes and underground?) to use unique colours
 * Option to interpolate specific colours (eg tfl primary)
-* Add appropriate font type - would like to use Johnston100 but requires a licence. Could use GoogleFonts (Hammersmith One + Open Sans?) as an alternative but can't render them in RStudio atm...
+* Using GoogleFonts (Hammersmith One + Open Sans?) as an alternative but can't render them in RStudio atm - must view outputs post-export. Would like to use Johnston100 for official font but requires appropriate license to use

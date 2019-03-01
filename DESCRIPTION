@@ -14,7 +14,9 @@ Imports:
     ggplot2,
     png,
     grid,
-    ggpubr
+    ggpubr,
+    sysfonts,
+    showtext
 Suggests:
     dplyr,
     rmarkdown,
