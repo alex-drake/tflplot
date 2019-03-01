@@ -61,6 +61,6 @@ tfl_style <- function() {
     #removing the standard grey ggplot background colour and sets the title size of the
     #facet-wrap title to font size 20)
     strip.background = ggplot2::element_rect(fill=tfl_cols("white")),
-    strip.text = ggplot2::element_text(size  = 16,  hjust = 0)
+    strip.text = ggplot2::element_text(size  = 16,  hjust = 0, family = font)
   )
 }
