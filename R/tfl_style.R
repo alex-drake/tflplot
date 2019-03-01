@@ -5,22 +5,24 @@
 #' @export
 
 tfl_style <- function() {
-  #sysfonts::font_add_google(name="Hammersmith One",family="Hammersmith")
-  #sysfonts::font_add_google(name="Open Sans",family = "OpenSans")
-  #showtext::showtext_auto() # RStudio won't render google fonts atm...
-  font <- "Helvetica" # to be replaced - should be Johnston100 but requires licence!
+  sysfonts::font_add_google(name="Hammersmith One",family="Hammersmith")
+  sysfonts::font_add_google(name="Open Sans",family = "OpenSans")
+  showtext::showtext_auto() # RStudio won't render google fonts atm...
+  #font <- "Helvetica" # to be replaced - should be Johnston100 but requires licence!
+  headers <- "Hammersmith"
+  font <- "OpenSans"
 
   ggplot2::theme(
 
     #Text format:
     #Set the font, size, type and colour of text for the chart's title
-    plot.title = ggplot2::element_text(family=font,
+    plot.title = ggplot2::element_text(family=headers,
                                        size=22,
                                        face="bold",
                                        color=tfl_cols("dark grey")),
     #Set the font, size, type and colour of text for the chart's subtitle,
     #as well as setting a margin between the title and the subtitle
-    plot.subtitle = ggplot2::element_text(family=font,
+    plot.subtitle = ggplot2::element_text(family=headers,
                                           size=16,
                                           color=tfl_cols("mid grey"),
                                           margin=ggplot2::margin(4,0,8,0)),
