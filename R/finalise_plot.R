@@ -42,10 +42,10 @@ left_align <- function(plot_name, pieces){
 #' @param logo_image_path File path for the logo image you want to use in the right hand side of your chart,
 #'
 #' @export create_footer
-create_footer <- function (source_name, logo_image_path) {
+create_footer <- function (caption, logo_image_path) {
   #Make the footer
   footer <- grid::grobTree(grid::linesGrob(x = grid::unit(c(0, 1), "npc"), y = grid::unit(1.1, "npc")),
-                           grid::textGrob(source_name,
+                           grid::textGrob(caption,
                                           x = 0.004, hjust = 0, gp = grid::gpar(fontsize=16)),
                            grid::rasterGrob(png::readPNG(logo_image_path), x = 0.944))
   return(footer)
@@ -57,7 +57,7 @@ create_footer <- function (source_name, logo_image_path) {
 #' Running this function will save your plot with the assumed guidelines from the TfL Digital Design guidelines
 #' It will left align your title, subtitle and source, add the TfL blocks at the bottom right and save it to your specified location.
 #' @param plot_name The variable name of the plot you have created that you want to format and save
-#' @param source_name The text you want to come after the text 'Source:' in the bottom left hand side of your side
+#' @param caption The text you want to come on the bottom left of your chat - usually reserved for caption text, but could reference a source. Defaults to ""
 #' @param save_filepath Exact filepath that you want the plot to be saved to
 #' @param width_pixels Width in pixels that you want to save your chart to - defaults to 640
 #' @param height_pixels Height in pixels that you want to save your chart to - defaults to 450
@@ -69,13 +69,13 @@ create_footer <- function (source_name, logo_image_path) {
 #'
 #' @export
 finalise_plot <- function(plot_name,
-                          source_name,
+                          caption = "",
                           save_filepath=file.path(Sys.getenv("TMPDIR"), "tmp-nc.png"),
                           width_pixels=640,
                           height_pixels=450,
                           logo_image_path = file.path(system.file("www", package = 'tflplot'),"placeholder.png")) {
 
-  footer <- create_footer(source_name, logo_image_path)
+  footer <- create_footer(caption, logo_image_path)
 
   #Draw your left-aligned grid
   plot_left_aligned <- left_align(plot_name, c("subtitle", "title", "caption"))
