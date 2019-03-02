@@ -32,8 +32,8 @@ tfl_style <- function() {
     #This leaves the caption text element empty as we'll want to set this elsewhere
 
     #Legend format
-    #legend.position = "bottom",
-    legend.position = c(0,0), # bottom left
+    legend.position = "bottom",
+    #legend.position = c(0,0), # bottom left
     legend.text.align = 0,
     legend.background = ggplot2::element_blank(),
     legend.title = ggplot2::element_blank(),
@@ -49,11 +49,11 @@ tfl_style <- function() {
                                       color=tfl_cols("dark grey")),
     axis.text.x = ggplot2::element_text(margin=ggplot2::margin(5, b = 10)),
     axis.ticks = ggplot2::element_blank(),
-    axis.line = ggplot2::element_line(color=tfl_cols("light grey 2")),
+    axis.line = ggplot2::element_line(color=tfl_cols("dark grey")),
 
     #Grid lines
     panel.grid.minor = ggplot2::element_blank(),
-    panel.grid.major.y = ggplot2::element_line(color=tfl_cols("light grey 2"), linetype = 2),
+    panel.grid.major.y = ggplot2::element_line(color=tfl_cols("mid grey"), linetype = 2),
     panel.grid.major.x = ggplot2::element_blank(),
 
     #Blank background

@@ -8,6 +8,8 @@ This package is not available on CRAN and as such must be installed using the `d
 
 <img src="examples/some_plot.png" alt="Example of plot created using the tflplot" width="640" height="550"/>
 
+<img src="examples/bar_plot.png" alt="YAEO a plot created using the tflplot" width="640" height="550"/>
+
 ```
 devtools::install_github('alex-drake/tflplot')
 ```
@@ -51,4 +53,4 @@ finalise_plot(plot_name = p,
 
 ## Notes
 
-* Using GoogleFonts (Hammersmith One + Open Sans?) as an alternative but can't render them in RStudio atm - must view outputs post-export. Would like to use Johnston100 for official font but requires appropriate license to use
+* Using GoogleFonts (Hammersmith One + Open Sans?) as an alternative but can't render them in RStudio at the moment - must view outputs post-export. Would like to use Johnston100 for official font but requires appropriate license to use
