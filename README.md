@@ -5,7 +5,7 @@ This repo is inspired by the excellent [BBC bbplot](https://github.com/bbc/bbplo
 ## Installation
 
 This package is not available on CRAN and as such must be installed using the `devtools` package.
-![Example of plot created using the tflplot](examples/some_plot.png)
+![Example of plot created using the tflplot](examples/some_plot.png =640x550)
 ```
 devtools::install_github('alex-drake/tflplot')
 ```
@@ -26,10 +26,10 @@ p <- ggplot(data=df, aes(x=year, y=vals)) +
 
 `view_palette()` is a utility function that allows you to view the colours in your requested palette eg `view_palette(tfl_pal(palette="underground", n=8, type="discrete"))`
 
-![Primary Palette](examples/primary.png)
-![Accent Palette](examples/accent.png)
-![Modes Palette](examples/Modes.png)
-![Underground Palette](examples/underground.png)
+![Primary Palette](examples/primary.png =640x300)
+![Accent Palette](examples/accent.png =640x300)
+![Modes Palette](examples/Modes.png =640x300)
+![Underground Palette](examples/underground.png =640x300)
 
 `finalise_plot()` will save your plot, ready for publication (or whatever you want to do with it). It will add a caption to the top left of the chart, along with figure number/reference. It will then be saved using the specified filepath.
 
