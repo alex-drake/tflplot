@@ -75,3 +75,34 @@ tfl_palettes <- list(
   `underground` = tfl_cols("bakerloo","central","circle","district","hammersmith & city","jubilee","metropolitan","northern","picadilly","victoria","waterloo & city"),
   `modes` = tfl_cols("lu blue","lu red","buses","dlr","tramlink","bch 1","bch 2","public carriage","victoria coach stn","london streets","river","dial-a-ride","emirates air line","overground","elizabeth line")
 )
+
+#' Return function to interpolate a tfl colour palette
+#'
+#' @param palette Character name of palette in tfl_palettes
+#' @param n Number of desired colours
+#' @param type Either "continous" or "discrete". Will interpolate if you use "continuous"
+#'
+#' @keywords tfl_pal
+#' @export
+
+tfl_pal <- function(palette = "underground", n, type = c("discrete", "continuous")) {
+  type <- match.arg(type)
+
+  pal <- unname(tfl_palettes[[palette]])
+  if (is.null(pal))
+    stop("Palette not found.")
+
+  if (missing(n)) {
+    n <- length(pal)
+  }
+
+  if (type == "discrete" && n > length(pal)) {
+    stop("Number of requested colors greater than those available in palette")
+  }
+
+  out <- switch(type,
+                continuous = grDevices::colorRampPalette(pal)(n),
+                discrete = pal[1:n]
+  )
+  structure(out, class = "palette", name = palette)
+}

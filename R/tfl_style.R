@@ -9,6 +9,7 @@ tfl_style <- function() {
   sysfonts::font_add_google(name="Open Sans",family = "OpenSans")
   showtext::showtext_auto() # RStudio won't render google fonts atm...
   #font <- "Helvetica" # to be replaced - should be Johnston100 but requires licence!
+  #headers <- "Helvetica" # using both elements for testing within RStudio - remove in final!
   headers <- "Hammersmith"
   font <- "OpenSans"
 
@@ -17,13 +18,13 @@ tfl_style <- function() {
     #Text format:
     #Set the font, size, type and colour of text for the chart's title
     plot.title = ggplot2::element_text(family=headers,
-                                       size=22,
+                                       size=16,
                                        face="bold",
                                        color=tfl_cols("dark grey")),
     #Set the font, size, type and colour of text for the chart's subtitle,
     #as well as setting a margin between the title and the subtitle
     plot.subtitle = ggplot2::element_text(family=headers,
-                                          size=16,
+                                          size=12,
                                           color=tfl_cols("mid grey"),
                                           margin=ggplot2::margin(4,0,8,0)),
     plot.caption = ggplot2::element_blank(),
@@ -31,13 +32,14 @@ tfl_style <- function() {
     #This leaves the caption text element empty as we'll want to set this elsewhere
 
     #Legend format
-    legend.position = "top",
+    #legend.position = "bottom",
+    legend.position = c(0,0), # bottom left
     legend.text.align = 0,
     legend.background = ggplot2::element_blank(),
     legend.title = ggplot2::element_blank(),
     legend.key = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(family=font,
-                                        size=14,
+                                        size=12,
                                         color=tfl_cols("dark grey")),
 
     #Axis format
@@ -47,11 +49,11 @@ tfl_style <- function() {
                                       color=tfl_cols("dark grey")),
     axis.text.x = ggplot2::element_text(margin=ggplot2::margin(5, b = 10)),
     axis.ticks = ggplot2::element_blank(),
-    axis.line = ggplot2::element_blank(),
+    axis.line = ggplot2::element_line(color=tfl_cols("light grey 2")),
 
     #Grid lines
     panel.grid.minor = ggplot2::element_blank(),
-    panel.grid.major.y = ggplot2::element_line(color=tfl_cols("light grey 2")),
+    panel.grid.major.y = ggplot2::element_line(color=tfl_cols("light grey 2"), linetype = 2),
     panel.grid.major.x = ggplot2::element_blank(),
 
     #Blank background
@@ -61,6 +63,6 @@ tfl_style <- function() {
     #removing the standard grey ggplot background colour and sets the title size of the
     #facet-wrap title to font size 20)
     strip.background = ggplot2::element_rect(fill=tfl_cols("white")),
-    strip.text = ggplot2::element_text(size  = 16,  hjust = 0, family = font)
+    strip.text = ggplot2::element_text(size  = 12,  hjust = 0, family = font)
   )
 }

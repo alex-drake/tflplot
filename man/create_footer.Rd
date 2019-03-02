@@ -12,6 +12,6 @@ create_footer(caption, logo_image_path)
 \item{logo_image_path}{File path for the logo image you want to use in the right hand side of your chart,}
 }
 \description{
-Running this will create the footer, including the required image/logo
+Running this will create the footer, including the required image/logo - not currently used
 }
 \keyword{create_footer}
