@@ -6,9 +6,9 @@ This repo is inspired by the excellent [BBC bbplot](https://github.com/bbc/bbplo
 
 This package is not available on CRAN and as such must be installed using the `devtools` package.
 
-<img src="examples/someplot.png" alt="Example of plot created using the tflplot" width="320" height="275"/>
+<img src="examples/someplot.png" alt="Example of plot created using the tflplot" width="480" height="413"/>
 
-<img src="examples/bar_plot.png" alt="YAEO a plot created using the tflplot" width="320" height="275"/>
+<img src="examples/bar_plot.png" alt="YAEO a plot created using the tflplot" width="480" height="413"/>
 
 ```
 devtools::install_github('alex-drake/tflplot')
