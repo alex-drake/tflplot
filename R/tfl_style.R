@@ -66,3 +66,23 @@ tfl_style <- function() {
     strip.text = ggplot2::element_text(size  = 12,  hjust = 0, family = font)
   )
 }
+
+#' Add Transport for London (TfL) map theme to ggplot chart
+#'
+#' This function allows you to add the TfL theme to your ggplotgraphics.
+#' @keywords tfl_map_style
+#' @export
+#'
+tfl_map_style <- function(){
+  ggplot2::theme(
+    axis.line = ggplot2::element_blank(),
+    axis.text = ggplot2::element_blank(),
+    axis.title = ggplot2::element_blank(),
+    axis.ticks = ggplot2::element_blank(),
+    panel.border = ggplot2::element_blank(),
+    panel.grid = ggplot2::element_blank(),
+    panel.grid.major.y = ggplot2::element_blank(),
+    legend.key.width = unit(5, "char"),
+    legend.text.align = 0.5
+  )
+}

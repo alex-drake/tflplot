@@ -4,7 +4,7 @@
 \alias{figure_caption}
 \title{Make the figure caption}
 \usage{
-figure_caption(caption, figure_num, width = 640)
+figure_caption(caption, figure_num = "", width = 640)
 }
 \arguments{
 \item{caption}{the text to be used for the caption - can be left blank}

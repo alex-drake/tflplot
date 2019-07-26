@@ -6,7 +6,7 @@
 \usage{
 finalise_plot(plot_name, caption = "", figure_number = "",
   save_filepath = file.path(Sys.getenv("TMPDIR"), "tmp-nc.png"),
-  width_pixels = 640, height_pixels = 450)
+  width_pixels = 640, height_pixels = 450, background_colour = NULL)
 }
 \arguments{
 \item{plot_name}{The variable name of the plot you have created that you want to format and save}
@@ -20,6 +20,8 @@ finalise_plot(plot_name, caption = "", figure_number = "",
 \item{width_pixels}{Width in pixels that you want to save your chart to - defaults to 640}
 
 \item{height_pixels}{Height in pixels that you want to save your chart to - defaults to 450}
+
+\item{background_colour}{The colour you want for the background of your plot - defaults to white}
 }
 \value{
 (Invisibly) an updated ggplot object.

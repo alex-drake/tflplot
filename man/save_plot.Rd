@@ -4,7 +4,7 @@
 \alias{save_plot}
 \title{Export the plot}
 \usage{
-save_plot(plot_grid, width, height, save_filepath)
+save_plot(plot_grid, width, height, save_filepath, bg)
 }
 \arguments{
 \item{plot_grid}{arrange plot using a grid}

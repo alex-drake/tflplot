@@ -10,11 +10,12 @@
 #'
 #' @export
 
-save_plot <- function (plot_grid, width, height, save_filepath) {
+save_plot <- function (plot_grid, width, height, save_filepath, bg) {
   grid::grid.draw(plot_grid)
+
   #save it
   ggplot2::ggsave(filename = save_filepath,
-                  plot=plot_grid, width=(width/72), height=(height/72),  bg=tfl_cols("white"))
+                  plot=plot_grid, width=(width/72), height=(height/72),  bg=bg)
 }
 #' Left align
 #'
@@ -62,22 +63,32 @@ create_footer <- function (caption, logo_image_path) {
 #' @param width The width of the figure in pixels - defaults to 640
 #'
 #' @export figure_caption
-figure_caption <- function (caption, figure_num, width = 640) {
+figure_caption <- function (caption,
+                            figure_num = "",
+                            width = 640) {
 
-  figure_lead <- ifelse(nchar(figure_num) > 0,
-                        paste0("Figure ",figure_num,": "),
-                        "Figure: ")
+  if(!is.null(figure_num)){
+    figure_lead <- ifelse(nchar(figure_num) > 0,
+                          paste0("Figure ",figure_num,": "),
+                          "Figure: ")
 
-  t1 <- grid::textGrob(figure_lead, x = 0.004, hjust = 0,
-                       gp = grid::gpar(col = tfl_cols("lu blue"), fontsize=16,
-                                       fontface="bold", fontfamily="Hammersmith"))
-  t2 <- grid::textGrob(caption, hjust = 0,
-                       x = ifelse(nchar(figure_num)==0,0.088,
-                                  ifelse(nchar(figure_num)==1, 0.108, 0.128)),
-                       gp = grid::gpar(col = tfl_cols("mid grey"), fontsize=16,
-                                       fontface="bold", fontfamily="Hammersmith"))
-  #Make the caption
-  caption <- grid::grobTree(t1,t2)
+    t1 <- grid::textGrob(figure_lead, x = 0.004, hjust = 0,
+                         gp = grid::gpar(col = tfl_cols("lu blue"), fontsize=16,
+                                         fontface="bold", fontfamily="Hammersmith"))
+    t2 <- grid::textGrob(caption, hjust = 0,
+                         x = ifelse(nchar(figure_num)==0,0.088,
+                                    ifelse(nchar(figure_num)==1, 0.108, 0.128)),
+                         gp = grid::gpar(col = tfl_cols("mid grey"), fontsize=16,
+                                         fontface="bold", fontfamily="Hammersmith"))
+    #Make the caption
+    caption <- grid::grobTree(t1,t2)
+  } else{
+    caption <- grid::grobTree(grid::textGrob(caption, hjust = 0, x = 0.004,
+                                             gp = grid::gpar(col = tfl_cols("mid grey"),
+                                                             fontsize = 14,
+                                                             fontface="bold",
+                                                             fontfamily="Hammersmith")))
+  }
 
   return(caption)
 }
@@ -92,6 +103,7 @@ figure_caption <- function (caption, figure_num, width = 640) {
 #' @param save_filepath Exact filepath that you want the plot to be saved to
 #' @param width_pixels Width in pixels that you want to save your chart to - defaults to 640
 #' @param height_pixels Height in pixels that you want to save your chart to - defaults to 450
+#' @param background_colour The colour you want for the background of your plot - defaults to white
 #' @return (Invisibly) an updated ggplot object.
 
 #' @keywords finalise_plot
@@ -102,7 +114,8 @@ finalise_plot <- function(plot_name,
                           figure_number = "",
                           save_filepath=file.path(Sys.getenv("TMPDIR"), "tmp-nc.png"),
                           width_pixels=640,
-                          height_pixels=450) {
+                          height_pixels=450,
+                          background_colour=NULL) {
 
   fig_caption <- figure_caption(caption, figure_number, width = width_pixels)
 
@@ -112,7 +125,11 @@ finalise_plot <- function(plot_name,
                                  ncol = 1, nrow = 2,
                                  heights = c( 0.05/(height_pixels/450), 1))
 
-  save_plot(plot_grid, width_pixels, height_pixels, save_filepath)
+  if(is.null(background_colour)){
+    background_colour <- tfl_cols("white")
+  }
+
+  save_plot(plot_grid, width_pixels, height_pixels, save_filepath, background_colour)
   ## Return (invisibly) a copy of the graph. Can be assigned to a
   ## variable or silently ignored.
   invisible(plot_grid)
