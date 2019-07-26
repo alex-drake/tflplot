@@ -73,20 +73,23 @@ figure_caption <- function (caption,
                           "Figure: ")
 
     t1 <- grid::textGrob(figure_lead, x = 0.004, hjust = 0,
-                         gp = grid::gpar(col = tfl_cols("lu blue"), fontsize=16,
-                                         fontface="bold", fontfamily="Hammersmith"))
+                         gp = grid::gpar(col = tfl_cols("lu blue"),
+                                         fontsize=16,
+                                         fontface="bold",
+                                         fontfamily="Hammersmith"))
     t2 <- grid::textGrob(caption, hjust = 0,
                          x = ifelse(nchar(figure_num)==0,0.088,
                                     ifelse(nchar(figure_num)==1, 0.108, 0.128)),
-                         gp = grid::gpar(col = tfl_cols("mid grey"), fontsize=16,
-                                         fontface="bold", fontfamily="Hammersmith"))
+                         gp = grid::gpar(col = tfl_cols("dark grey"),
+                                         fontsize=16,
+                                         fontfamily="Hammersmith"))
     #Make the caption
     caption <- grid::grobTree(t1,t2)
   } else{
     caption <- grid::grobTree(grid::textGrob(caption, hjust = 0, x = 0.004,
-                                             gp = grid::gpar(col = tfl_cols("mid grey"),
+                                             gp = grid::gpar(col = tfl_cols("dark grey"),
                                                              fontsize = 14,
-                                                             fontface="bold",
+                                                             #fontface="bold",
                                                              fontfamily="Hammersmith")))
   }
 
